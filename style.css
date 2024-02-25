@@ -1,0 +1,13 @@
+.pokemon-card {
+  width: 100px;
+  padding: 20px;
+  margin: 5px;
+  border: 1px solid black;
+  border-radius: 20px;
+  text-align: center;
+}
+
+#pokedex {
+  display: flex;
+  flex-wrap: wrap;
+}
