@@ -5,7 +5,6 @@ function capitalizeFirstLetter(word) {
 }
 
 function createPokemonCard(pokemonData, id) {
-  console.log(pokemonData);
   const { name } = pokemonData;
   const formattedName = capitalizeFirstLetter(name);
 
@@ -16,8 +15,8 @@ function createPokemonCard(pokemonData, id) {
   return pokemonCard;
 }
 
-export function appendPokemonElements(data) {
-  data.map((pokemon, index) => {
+export function appendPokemonCards(pokemonData) {
+  pokemonData.map((pokemon, index) => {
     pokedex.appendChild(createPokemonCard(pokemon, index + 1));
   });
 }
