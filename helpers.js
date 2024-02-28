@@ -15,7 +15,7 @@ function createPokemonCard(pokemonData, id) {
   return pokemonCard;
 }
 
-export function appendPokemonCards(pokemonData) {
+export function renderPokemonCards(pokemonData) {
   pokemonData.map((pokemon, index) => {
     pokedex.appendChild(createPokemonCard(pokemon, index + 1));
   });
