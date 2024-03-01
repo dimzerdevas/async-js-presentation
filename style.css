@@ -11,3 +11,40 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+img {
+  width: 100px;
+  position: absolute;
+  top: 15px;
+  right: 0;
+}
+
+.restaurant {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 10px solid black;
+  height: 70vh;
+  margin: 10px 35px;
+}
+
+.kitchen {
+  align-self: flex-end;
+  width: 400px;
+  height: 150px;
+  padding: 10px;
+  border: 1px solid black;
+  margin: 0 0 20px;
+  text-align: center;
+}
+
+.dining-area {
+  border-top: 2px solid black;
+  height: 100%;
+  padding: 20px;
+}
+
+.tables {
+  display: flex;
+  justify-content: space-around;
+}

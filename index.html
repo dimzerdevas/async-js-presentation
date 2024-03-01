@@ -5,11 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="./handleRequest.js" defer></script>
     <script type="module" src="./helpers.js" defer></script>
+    <script src="/components/RestaurantTable.js" defer></script>
     <link rel="stylesheet" href="./style.css" />
     <title>Async JavaScript Examples</title>
   </head>
   <body>
-    <h1>Request Examples</h1>
+    <h1>Async Restaurant:</h1>
     <div id="pokedex"></div>
+    <div class="restaurant">
+      <img src="/assets/waiter-svgrepo-com.svg" />
+      <div class="kitchen">
+        <h2>Kitchen (API)</h2>
+      </div>
+      <div class="dining-area">
+        <h2>Dining Area (UI)</h2>
+        <div class="tables">
+          <restaurant-table></restaurant-table>
+          <restaurant-table></restaurant-table>
+          <restaurant-table></restaurant-table>
+          <restaurant-table></restaurant-table>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
