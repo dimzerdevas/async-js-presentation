@@ -5,6 +5,7 @@ class RestaurantTable extends HTMLElement {
 
   connectedCallback() {
     const shadowRoot = this.attachShadow({ mode: "open" });
+
     shadowRoot.innerHTML = `
     <style>
     .table-container {
@@ -20,12 +21,16 @@ class RestaurantTable extends HTMLElement {
       }
       
       .table {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         background-color: black;
         border: 1px solid black;
         width: 100px;
         height: 100px;
+        padding: 10px;
       }
-      
+
       .chair {
         border: 1px solid black;
         width: 40px;
@@ -33,19 +38,46 @@ class RestaurantTable extends HTMLElement {
         border-radius: 50px;
         background: black;
         margin: 5px;
+        color: white;
+        transform: rotate(-45deg);
+        padding: 10px;
+      }
+
+      .operation-btn {
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .tech {
+        display: block;
+        color: white;
+        transform: rotate(-45deg);
       }
     </style>
         <div class="table-container">
-            <div class="chair"></div>
-            <div class="vertical-arrangement">
-            <div class="chair"></div>
-            <div class="table"></div>
-            <div class="chair"></div>
+          <div class="chair">
+            <button onclick="handleClick" class="operation-btn">Create</button>
+          </div>
+          <div class="vertical-arrangement">
+            <div class="chair">
+              <button class="operation-btn">Read</button>
             </div>
-            <div class="chair"></div>
+            <div class="table"><span class="tech">${this.getAttribute(
+              "tech"
+            )}</span></div>
+            <div class="chair">
+              <button class="operation-btn">Update</button>
+            </div>
+          </div>
+          <div class="chair">
+            <button class="operation-btn">Delete</button>
+          </div>
         </div>
     `;
   }
 }
 
-customElements.define('restaurant-table', RestaurantTable)
+customElements.define("restaurant-table", RestaurantTable);
