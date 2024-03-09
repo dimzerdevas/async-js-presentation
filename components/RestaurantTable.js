@@ -1,3 +1,64 @@
+class Modal extends HTMLElement {
+  constructor() {
+    super();
+  }
+
+  connectedCallback() {
+    const shadowRoot = this.attachShadow({ mode: "open" });
+
+    shadowRoot.innerHTML = `
+    <style>
+     
+    </style>
+    </head>
+    <body>
+    
+    <h2>Modal Example</h2>
+    
+    <!-- Trigger/Open The Modal -->
+    <button id="myBtn">Open Modal</button>
+    
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+    
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Some text in the Modal..</p>
+      </div>
+    
+    </div>
+    `;
+    // Get the modal
+    var modal = this.shadowRoot.querySelector("#myModal");
+    
+    // Get the button that opens the modal
+    var btn = this.shadowRoot.querySelector("#myBtn");
+    
+    // Get the <span> element that closes the modal
+    var span = this.shadowRoot.querySelectorAll(".close")[0];
+    
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+    
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  }
+}
+
+customElements.define("modal-prompt", Modal);
+
 class RestaurantTable extends HTMLElement {
   constructor() {
     super();
@@ -5,6 +66,8 @@ class RestaurantTable extends HTMLElement {
 
   connectedCallback() {
     const shadowRoot = this.attachShadow({ mode: "open" });
+
+    const modal = document.createElement("modal-prompt");
 
     shadowRoot.innerHTML = `
     <style>
@@ -77,6 +140,9 @@ class RestaurantTable extends HTMLElement {
           </div>
         </div>
     `;
+    shadowRoot.append(modal);
+    const button = this.shadowRoot.querySelector(".operation-btn");
+    button.onclick = () => console.log("hello");
   }
 }
 
