@@ -5,13 +5,29 @@ function capitalizeFirstLetter(word) {
 }
 
 function createPokemonCard(pokemonData, id) {
-  const { name } = pokemonData;
+  const { name, image, type } = pokemonData;
   const formattedName = capitalizeFirstLetter(name);
 
   const pokemonCard = document.createElement("div");
   pokemonCard.classList.add("pokemon-card");
 
-  pokemonCard.innerHTML = `<div>#${id} - ${formattedName}</div>`;
+  pokemonCard.innerHTML = `
+    <img src=${image} />
+    <div>#${id} - ${formattedName}</div>
+  `;
+
+  const typesContainer = document.createElement("div");
+  typesContainer.classList.add("types");
+  pokemonCard.append(typesContainer);
+
+  const types = type.split(", ");
+  types.forEach((type) => {
+    const typeChip = document.createElement("div");
+    typeChip.classList.add("type");
+    typeChip.textContent = type;
+    typesContainer.append(typeChip);
+  });
+
   return pokemonCard;
 }
 
